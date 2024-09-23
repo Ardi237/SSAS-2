@@ -1,0 +1,276 @@
+A. Umum :
+1. Bagaimana menuliskan sintaks CSS secara bersarang.
+----------------------------------------------------------------------
+2. Membuat hirarki visual yang jelas untuk selector CSS kita.
+----------------------------------------------------------------------
+
+
+
+B. Contoh penggunaan :
+1. Ini adalah contoh HTML :
+<----
+<div class="container">
+    <section class="main">
+      <div class="main-header">
+        <h1>Hello World</h1>
+      </div>
+      <div class="main-paragraph">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ipsum rerum officiis maxime voluptates impedit sint fuga error praesentium molestias.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus iusto cum, porro adipisci repudiandae similique labore quae voluptatum inventore doloremque.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-heading">
+      <h1>Footer WPU</h1>
+    </div>
+    <div class="footer-paragraph">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat optio quo, illum reiciendis quibusdam facilis adipisci voluptas amet repudiandae?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et consequatur ad expedita aperiam dolorum deserunt corporis odit optio accusantium aliquam.</p>
+    </div>
+  </footer>
+---->
+----------------------------------------------------------------------
+2. Nesting Umum :
+<---- 
+.main { 
+  background-color : lightblue;
+
+  .main-heading {
+    font-size : 2em;
+  }
+
+  .main-paragraph {
+    font-size : 1.5em;
+  }
+}
+---->
+// Penjelasan :
+1. `.main` adalah selektor induk. Di dalamnya, terdapat selektor bersarang .main-heading dan .main-paragraph. SCSS mengonversinya menjadi CSS dengan hirarki .main .main-heading dan .main .main-paragraph.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+3. Multiple Selectors Nesting :
+<-----
+*  .main, footer {
+    h1, p {
+      letter-spacing: 1px;
+    }
+}
+---->
+// Penjelasan :
+1. Di sini, `h1` dan `p` yang berada di dalam `.main` atau `footer` akan memiliki properti `letter-spacing: 1px;`. Ini membuat kode lebih efisien, karena SCSS memungkinkan penggabungan selektor secara bersamaan. 
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+4. Parent Selector (&) :
+<----
+.main {
+  .container & P{
+    background-color : lightblue;
+  }
+
+  .main-heading {
+    font-size: 2em;
+  }
+
+  &:hover {
+    background-color: salmon;
+  }
+
+}
+---->
+// Penjelasan :
+1. `.container & {} : &` mewakili selektor `.main`. Ini berarti "apapun yang ada di dalam `.container`, jika ada elemen `.main`, terapkan `background-color: lightblue.` Outputnya di CSS akan seperti :
+<----
+.container .main {
+  background-color : lightblue;
+}
+---->
+2. `&:hover : &` juga digunakan untuk pseudo-class, seperti `:hover` ini menyatakan bahwa ketika elemen `.main` di-hover, terapkan `background-color: salmon`.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+5. Nesting dengan Parent Selector untuk membentuk BEM-like Classes :
+<----
+.main {
+  & &-heading {
+    font-size : 2em;
+  }
+
+  & &-paragraph {
+    font-size: 1.4em;
+  }
+}
+
+.footer {
+  & &-heading {
+    font-size: 2em;
+  }
+
+  & &-paragraph {
+    font-size : 1.4em;
+  }
+}
+---->
+//Penjelasan :
+1. Pada bagian ini, pengguna `&` sangat penting untuk membentuk nama kelas seperti `main-heading` dan `main-paragraph` dari kelas `.main`. Sama dengan kelas di `.footer` Hasilnya di CSS :
+<----
+.main .main-heading {
+  font-size: 2em;
+}
+
+.main .main-paragraph {
+  font-size: 1.4em;
+}
+
+.footer .footer-heading {
+  font-size: 2em;
+}
+
+.footer .footer-paragraph {
+  font-size: 1.4em;
+}
+---->
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+
+
+
+C. Kesimpulan :
+1. Nesting : Membantu menulis CSS yang lebih bersih dan sesuai dengan struktur HTML.
+----------------------------------------------------------------------
+2. Parent Selector (&) sangat berguna saay kami ingin merujuk pada selektor induk saat menulis nested CSS, dan juga untuk membuat kelas BEM-like yang konsisten. Ini bisa memperkuat penamaan dan keterbacaan kode.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
