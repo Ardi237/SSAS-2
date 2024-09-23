@@ -1,0 +1,151 @@
+A. Umum :
+1. Pre-Proccesor-CSS : Aksi yang akan dijalankan dan diproses sebelum menjadi CSS.
+-----------------------------------------------------------------------
+2. SASS : Sintaks lebih sederhana, tanpa kurung kurawal `{}` dan titik koma `;` menggunakan indentasi.
+-----------------------------------------------------------------------
+3. SCSS : Mirip CSS biasa, memakai kurung kurawal `{}` dan titik koma `;` lebih populer karena familiar bagi pengguna CSS.
+-----------------------------------------------------------------------
+
+
+
+
+B. Kenapa menggunakan pre-processor-CSS :
+1. Kekurangan pada CSS :
+-  Tidak ada variabel.
+-  Tidak ada function.
+-  Tidak ada modularisasi.
+-  Tidak bisa melakukan operasi & Logika pemrograman.
+-  Banyak duplikasi kode.
+-----------------------------------------------------------------------
+2. Solusi dari pre-processor :
+-  Variable.
+-  Mixin.
+-  Import & Uses.
+-  Operator &  Built-in Function.
+-  Nested CSS.
+-----------------------------------------------------------------------
+3. Alasan menggunakan SASS :
+-  Mempermudah penulisan.
+-  Mempermudah pengelolaan.
+-  Memiliki banyak fungsi built-in.
+-  Kita dapat memodifikasi framework CSS. (cth: Bootstrap / Materialize)
+-  Banyak perusahaan menggunakan CSS.
+-----------------------------------------------------------------------
+
+
+
+
+C. Penggunaan Pre-processor-CSS :
+1. Aplikasi :
+-  Codekit (Paid) Mac
+-  Compass.app (Paid, Open Source) Max Windows Linux.
+-  Ghostlab (paid) Mac Windows.
+-  Hammer (Paid) Mac.
+-  Koala (Open Source) Mac Windows Linux.
+-  LiveReload (Paid, Open Source) Mac Windows.
+-  Prepros (Paid) Mac Windows Linux.
+-  Scout-App (Free, Open Source) Windows Linux Mac.
+-----------------------------------------------------------------------
+2. Command Line :
+-  npm install -g sass.
+-  brew install sass/sass/sass  .
+*  promt untuk lanjutannya :
+-  sass source/stylesheets/index.scss build/stylesheets/index.css.
+-----------------------------------------------------------------------
+3. VSCode Extension :
+-  Donwload VSCode Extension : live Sass Compiler.
+-  Klik Watch SCSS di footer
+-----------------------------------------------------------------------
+
+
+
+
+
+D. Alasan tidak menggunakan SASS :
+-  Banyak fitur SASS yang sekarang sudah dimiliki oleh CSS.
+-  Tidak untuk project kecil.
+-  Styled Components / CSS in JS
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
