@@ -1,0 +1,206 @@
+A. Umum :
+1. Dalam SSAS, terdapat tiga konsep penting yang sangat berguna untuk mengelola gaya secara lebih efisien dan terorganisir; variables (variabel), scope (ruang lingkup), dan map (peta). 
+--------------------------------------------------------------------
+
+
+
+
+B. Variables (Variabel) :
+1. Variabel dalam SASS memungkinkan kamu menyimpan nilai yang dapat digunakan kembali di berbagai tempat dalam file gaya. 
+----------------------------------------------------------------------
+2. Ini membantu menghindari pengulangan dan mempermudah pegnelolaannilai yang sering beruabh, seperti warna, ukuran font, dan jarak.
+----------------------------------------------------------------------
+3. Contoh :
+<----
+$primary-color: #3498db;
+$font-size-large: 18px;
+$margin: 10px;
+
+body {
+  color: $primary-color;
+  font-size: $font-size-large;
+  margin: $margin;
+}
+---->
+----------------------------------------------------------------------
+
+
+
+
+C. Scope (Ruang Lingkup) :
+1. Scope dalam SASS mengacu pada area di mana variabel atau fungsi tertentu dapat diakses. Ada dua jenis scope di SASS : 
+----------------------------------------------------------------------
+*  Global Scope : Variabel yang didefinisikan di luar selektor atau fungsi memiliki cakupan global, artinya bisa digunakan di seluruh file SASS.
+----------------------------------------------------------------------
+*  Local Scope: Variabel yang didefinisikan di dalam selektor, fungsi, atau mixin hanya dapat digunakan dalam lingkup tersebut.
+----------------------------------------------------------------------
+<----
+$global-color: #2ecc71;
+
+.container {
+  $local-padding: 20px;
+  padding: $local-padding;
+  background-color: $global-color;
+}
+
+.box {
+  background-color: $global-color; // bisa mengakses variabel global
+  // padding: $local-padding; // Error: variabel lokal tidak bisa diakses di sini
+}
+---->
+// Penjelasan :
+*  $global-color bisa digunakan di seluruh file, baik di `.container` maupun di `.box`.
+*  $local-padding hanya bisa digunakan di dalam .container karena berada dalam local scope.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+
+
+4. Map (Peta) :
+*  SASS menyediakan map yang mirip dengan objek di JavaScript atau dictionary di Python. 
+*  Map memungkinkan kamu menyimpan data dalam bentuk pasangan key-value, sehingga kamu dapat mengelompokkan nilai-nilai terkait dalam satu variabel.
+----------------------------------------------------------------------
+<----
+$theme-colors: (
+  primary: #3498db,
+  secondary: #2ecc71,
+  danger: #e74c3c,
+);
+
+.button {
+  background-color: map-get($theme-colors, primary);
+  color: white;
+}
+---->
+// Penjelasan :
+1. $theme-colors adalah sebuah map yang berisi beberapa pasangan key-value (misalnya, primary -> #3498db).
+2. map-get($theme-colors, primary) digunakan untuk mengambil nilai dari map berdasarkan kunci (primary).
+3. `();` dapat diganti dengan  `{}`.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+
+
+
+
+D. Operasi pada MAP : 
+1. Kamu juga bisa melakukan beberapa operasi pada map, seperti menambahkan, menghapus, atau memodifikasi item.
+----------------------------------------------------------------------
+<----
+$theme-colors: (
+  primary: #3498db,
+  secondary: #2ecc71,
+  danger: #e74c3c,
+);
+
+// Menambahkan warna baru
+$theme-colors: map-merge($theme-colors, (warning: #f39c12));
+
+.button-warning {
+  background-color: map-get($theme-colors, warning);
+}
+---->
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+
+
+
+E. Kesimpulan :
+-  Variables membantu menyimpan dan menggunakan nilai yang dapat digunakan kembali.
+----------------------------------------------------------------------
+-  Scope menentukan di mana variabel dapat diakses (global atau local).
+----------------------------------------------------------------------
+-  Map memungkinkan penyimpanan pasangan key-value yang mempermudah pengelolaan grup data seperti warna tema. Ini juga mendukung berbagai operasi untuk memodifikasi atau mendapatkan data.
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
