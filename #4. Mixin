@@ -1,0 +1,149 @@
+A. Umum :
+1. Mixin dalam SASS adalah sebuah blok kode yang dapat digunakan kembali untuk menghindari duplikasi gaya di beberapa tempat. 
+---------------------------------------------------------------------------------
+2. Mixin dapat menerima argument untuk membuatnya lebih dinamis dan fleksibel. Mereka adalah salah satu fitur yang paling berguna di SASS karena memungkinkan kita mengemas sekumpulan gaya yang sering digunakan dan memanggilnya di mana pun dibutuhkan.
+---------------------------------------------------------------------------------
+
+
+
+
+B. Mixin Sederhana (Simple Mixin) :
+1. Mixin sederhana mendefinisikan sekelompok gaya yang dapat digunakan berulang kali : 
+<----
+@mixin inline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+  }
+}
+---->
+//Penjelasan :
+1. Penjelasan : Mixin `inline-list` mendefinisikan beberapa gaya dasar untuk elemen datar `(ul)`, seperti menghapus margin, padding, dan mengganti `li` menjadi `inline-block`.
+---------------------------------------------------------------------------------
+
+
+
+
+
+C. Mixin dengan argumen :
+1. SASS memungkinkan kita untuk menambahkan argumen pada mixin agar lebih dinamis. Ini seperti fungsi di dalam bahasa pemrograman lain di mana kita bisa memberikan parameter untuk menentukan bagaimana outputnya.
+<----
+@mixin flex-box($direction: row, $pace: center) {
+  display: flex;
+  justify-content: $space;
+  align-items: center;
+  flex-directions: $direction;
+}
+---->
+// Penjelasan :
+1.  Mixin `flex-box` memungkinkan kamu untuk dengan mudah mengatur elemen sebagai flexbox. Dua argumen yang bisa disesuaikan adalah : 
+    - `$direction` : Mengatur arah `flex-direction` (default: row).
+    - `$space` : Mengatur distribusi ruang melalui `justfy-content` (default: center).
+---------------------------------------------------------------------------------
+
+
+
+
+
+D. Kesimpulan :
+1. Mixin mwemungkinkan gaya lebih efisien dan dapat digunakan kembali di berbagai tempat.
+---------------------------------------------------------------------------------
+2. Mixin dapat menerima argument untuk membuat gaya yang lebih dinamis dan disesuaikan, seperti layout flexbox.
+---------------------------------------------------------------------------------
+3. Dengan menggunakan `@include`, kita bisa menerapkan mixin di dalam selector apa pun, baik dengan atau tanpa argumen.
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
