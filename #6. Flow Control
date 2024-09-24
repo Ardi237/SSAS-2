@@ -1,0 +1,230 @@
+A. Umum :
+1. FLow control : Fitur yang memungkinkan kita untuk membuat logika dalam CSS. Seperti dalam bahasa pemrograman, kita dapat menggunakan berbagai kontrol alur untuk membuat keputusan atau perulangan berdasarkan kondisi tertentu. 
+-----------------------------------------------------------------------------
+2. SASS mendukung beberapa instruksi flow control seperti @if, @else if, @else, @for, @while, dan @each.
+-----------------------------------------------------------------------------
+
+
+
+
+
+B. `@if`, `@else if`, `@else` : 
+1. Instruksi ini bekerja seperti dalam bahasa pemrograman lainnya, memungkinkan kita untuk melakukan logika berdasarkan kondisi tertentu.
+<----
+@mixin profile-pic($size, $circle: false) {
+  width: $size;
+  height: $size;
+  border: 5px solid white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
+  @if $circle {
+    border-radius: 50%;
+  }
+}
+---->
+// Penjelasan :
+1. @if mengecek apakah nilai $circle adalah true. Jika ya, maka border-radius: 50% akan diterapkan, yang akan membuat elemen menjadi lingkaran.
+-----------------------------------------------------------------------------
+
+
+
+
+C. `@for` :
+1. @for memungkinkan perulangan dari nilai awal ke nilai akhir. Biasanya digunakan untuk mengulang blok CSS dengan pola yang berulang.
+<----
+$color: salmon;
+.gradient {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  @for $i from 1 to 11 {
+    li:nth-child(#{$i}) {
+      padding: 4px;
+      background-color: lighten($color, $i * 2%);
+    }
+  }
+}
+---->
+// Penjelasan :
+1. @for mengulang dari 1 hingga 10, dan untuk setiap li:nth-child, properti padding dan background-color diterapkan. 
+2. Warna latar belakang menjadi lebih cerah seiring bertambahnya iterasi menggunakan fungsi lighten.
+-----------------------------------------------------------------------------
+
+
+
+
+D. `@while` :
+1. @while bekerja seperti dalam bahasa pemrograman lainnya. Ia akan terus mengulang sampai kondisi yang ditentukan tidak lagi terpenuhi.
+<----
+$color: salmon;
+.gradient {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  $i: 1;
+  @while $i < 11 {
+    li:nth-child(#{$i}) {
+      padding: 4px;
+      background-color: lighten($color, $i * 2%);
+    }
+    $i: $i + 1; // Increment nilai $i
+  }
+}
+---->
+// Penjelasan :
+1. @while melakukan iterasi selama kondisi $i < 11 terpenuhi. Setiap kali iterasi terjadi, nilai $i bertambah 1 dan gaya CSS diterapkan pada elemen berdasarkan nth-child ke-$i.
+-----------------------------------------------------------------------------
+
+
+
+
+E. `@wach` :
+1. @each digunakan untuk melakukan perulangan pada daftar atau map (peta asosiatif), memungkinkan penerapan gaya yang berbeda untuk setiap item dalam koleksi.
+<----
+$social-colors: (
+  youtube: #000,
+  facebook: #5d5d5d,
+  twitter: #f0f0f0,
+  instagram: #7b2828,
+  twitch: #eb2d2d,
+);
+
+.socials {
+  font-size: 2em;
+  font-family: Arial;
+  font-weight: bold;
+
+  @each $social, $color in $social-colors {
+    .#{$social} {
+      color: $color;
+    }
+  }
+}
+---->
+// Penjelasan :
+1. @each di sini digunakan untuk memproses map $social-colors. Dalam setiap iterasi, $social akan diisi dengan nama sosial media (youtube, facebook, dll.) dan $color dengan nilai warnanya. 
+2. Hasilnya, setiap elemen .youtube, .facebook, dll. akan memiliki warna yang berbeda sesuai dengan definisi pada map.
+-----------------------------------------------------------------------------
+
+
+
+
+F. `@mixin` dan argument control : 
+1. @mixin digunakan untuk mendefinisikan blok kode yang dapat digunakan kembali, dengan dukungan logika melalui flow control.
+<----
+@mixin color-mode($light-mode: true) {
+  @if $light-mode {
+    background-color: $light-bg;
+    color: $light-text;
+  } @else {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+}
+---->
+// Penjelasan :
+1. Mixin color-mode akan mengubah gaya berdasarkan kondisi $light-mode. 
+2. Jika $light-mode bernilai true, maka warna latar belakang dan teks akan menjadi warna terang, dan jika false, akan berubah menjadi warna gelap.
+-----------------------------------------------------------------------------
+
+
+
+
+G. Kesimpulan :
+1. Flow Control dalam SASS memungkinkan logika dan kontrol lebih dalam pengelolaan gaya CSS, memungkinkan kita untuk menulis gaya yang lebih dinamis dan kompleks.
+-----------------------------------------------------------------------------
+2. @if, @else if, @else digunakan untuk keputusan kondisi.
+-----------------------------------------------------------------------------
+3. @for dan @while untuk perulangan berurutan.
+-----------------------------------------------------------------------------
+4. @each sangat cocok untuk bekerja dengan map dan list, memproses setiap item secara individual.
+-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
