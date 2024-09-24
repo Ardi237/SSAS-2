@@ -47,7 +47,34 @@ C. Mixin dengan argumen :
 
 
 
-D. Kesimpulan :
+
+D. Cara menggunakan Mixin :
+1. Pertama, pahami `@mixin` dan `@include` :
+----------------------------------------------
+*  `@mixin` : Digunakan untuk mendefinisikan sekumpulan gaya yang dapat digunakan kembali di berbagai tempat. Mixin juga dapat menerima argumen untuk menambahkan fleksibilitas.
+<----
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+---->
+----------------------------------------------
+*  `@include` : Digunakan untuk memanggil atau menerapkan mixin yang telah didefinisikan dengan `@mixin`. Ini memungkinkan penggunaan gaya yang sudah dibuat sebelumnya.
+<----
+.box {
+  @include border-radius(10px);
+}
+---->
+----------------------------------------------
+2. Kesimpulan : 
+*  `@mixin` = mendefinisikan gaya.
+*  `@include` = menggunakan gaya yang didefinisikan.
+----------------------------------------------
+
+
+
+
+
+E. Kesimpulan :
 1. Mixin mwemungkinkan gaya lebih efisien dan dapat digunakan kembali di berbagai tempat.
 ---------------------------------------------------------------------------------
 2. Mixin dapat menerima argument untuk membuat gaya yang lebih dinamis dan disesuaikan, seperti layout flexbox.
