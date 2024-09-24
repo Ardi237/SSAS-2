@@ -1,0 +1,184 @@
+A. Umum :
+1. Dalam SSAS, baik `@import` maupun `@use` digunakan untuk menggabungkan atau menyertakan file lain ke dalam file SASS utama. 
+--------------------------------------------------------------------------------
+2. Namun, kedua direktif ini memiliki perbedaan cera kerja yang signifikan.
+--------------------------------------------------------------------------------
+
+
+
+
+B. `@import` (Versi lama) :
+1. Fungsi : `@import` digunakan untuk memasukkan file SASS lainnya ke dalam file saat ini. 
+--------------------------------------------------------------------------------
+2. Semua variabel, mixin, dan fungsi yang didefiisikan dalam file yang diimpor akan secar alangsung tersedia di file tersebut.
+--------------------------------------------------------------------------------
+*  Masalah :
+-  Namespace : Tidak ada isolasi nama (namespace). Semua variabel, mixin, dan fungsi langsung global, jadi jika ada nama yagn sama di file yang berbeda, akan ada konfilk.
+-  Kinerja : Setiap kali @import digunakan, SASS memproses kembali file tersebut, yang bisa memperlambat waktu kompilasi jika digunakan dalam jumlah besar.
+--------------------------------------------------------------------------------
+<----
+@import 'modules/mixin', 'modules/header', 'modules/container', 'modules/footer';
+
+.header ul {
+  @include inline-list();
+  li {
+    background-color: black;
+    padding: 0.7em;
+    a {
+      color: whitesmoke;
+    }
+  }
+}
+---->
+// Penjelasan :
+1.  Semua file yang diimpor (mixin, header, container, dan footer) menjadi bagian dari file ini. 
+--------------------------------------------------------------------------------
+2. Variabel dan mixin yang didefinisikan di dalam file tersebut akan tersedia secara langsung tanpa namespace, seperti inline-list dalam contoh di atas.
+--------------------------------------------------------------------------------
+
+
+
+
+
+C. `@use` (Versi baru) :
+1. Fungsi: @use adalah cara yang lebih baru dan lebih baik untuk mengimpor file SASS. Dengan @use, semua variabel, mixin, dan fungsi yang diimpor di-namespaced secara default, sehingga tidak terjadi konflik nama.
+--------------------------------------------------------------------------------
+*  Keuntungan :
+-  Namespace: Semua yang diimpor melalui @use memiliki namespace. Ini mencegah   variabel atau mixin dari file berbeda memiliki nama yang bentrok.
+--------------------------------------------------------------------------------
+-  Optimasi: File hanya diproses sekali, bahkan jika diimpor berkali-kali.
+--------------------------------------------------------------------------------
+*  Alias (as) : Kamu bisa memberikan nama alias untuk file yang Alias (As): Kamu bisa memberikan nama alias untuk file yang diimpor dengan as. 
+*  Ini sangat berguna untuk menyingkat nama panjang atau ketika kamu perlu mengimpor banyak file.
+--------------------------------------------------------------------------------
+<----
+@use 'modules/header';
+@use 'modules/container';
+@use 'modules/footer';
+@use 'mixin' as m;
+
+.header ul {
+  @include m.inline-list(); // Menggunakan mixin dari file 'mixin'
+  li {
+    background-color: black;
+    padding: 0.7em;
+    a {
+      color: whitesmoke;
+    }
+  }
+}
+---->
+// Penjelasan :
+1. `@use 'mixin' as m; : Ini memberi alias m untuk file mixin, sehingga mixin dan variabel dalam mixin diakses menggunakan namespace m.
+--------------------------------------------------------------------------------
+2. Dalam contoh ini, mixin inline-list dipanggil sebagai m.inline-list(), yang menghindari potensi konflik dengan mixin dari file lain.
+--------------------------------------------------------------------------------
+
+
+
+
+
+D. Perbedaan utama antara @import dan @use :
+1. Fitur :
+*  Namespace :
+-  @import : Tidak ada namespace semuanya global.
+-  @use : Menggunakan namespace (Default atau alias).
+--------------------------------------------------------------------------------
+*  Kinerja : 
+-  @import : Dapat memperlambat kompilasi (file diimport berulang kali).
+-  @use : Lebih cepat (file diproses sekali).
+--------------------------------------------------------------------------------
+*  Potensi konflik :
+-  @import : Rentan terhadap konfilk nama.
+-  @use : Aman dari konflik nama berkat namespace.
+--------------------------------------------------------------------------------
+*  Penggunaan Mixin/Variabel :
+-  @import : Langsung digunakan tanpa prefix.
+-  @use : Harus diakses menggunakan namespace atau alias
+--------------------------------------------------------------------------------
+*  Versi SASS : 
+-  @import : Versi lama.
+-  @use : Versi baru (direkomendasikan).
+--------------------------------------------------------------------------------
+
+
+
+
+
+E. Kesimpulan : 
+1. @import: Versi lama yang langsung menyertakan variabel, mixin, dan fungsi ke dalam global scope, namun rawan konflik dan memperlambat kompilasi.
+--------------------------------------------------------------------------------
+@use: Versi baru yang lebih efisien, menggunakan namespace untuk mencegah konflik nama dan hanya memproses file satu kali. Mixin dan variabel yang diimpor harus diakses melalui namespace atau alias.
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
