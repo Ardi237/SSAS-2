@@ -1,0 +1,162 @@
+A. Umum :
+1. SASS memiliki built-in modules yang menyediakan fungsi dan fitur tambahan untuk membantu menulis CSS dengan lebih efisien dan dinamis. 
+----------------------------------------------------------------------------------
+2. Built-in modules ini memungkinkan kita untuk memanfaatkan fitur siap pakai seperti pengolahan warna, string, list, map, dan lain-lain.
+----------------------------------------------------------------------------------
+3. Built-in Modules : Color, List, Map, Math, Meta, Selector, String. 
+----------------------------------------------------------------------------------
+4. link nmodules : https://ssas-lang.com/documentation/modules
+----------------------------------------------------------------------------------
+
+
+
+
+B. Color SASS :
+1. Module ini menyediakan fungsi-fungsi untuk memanipulasi warna. 
+----------------------------------------------------------------------------------
+2. Kamu bisa melakukan operasi pada warna seperti mencerahkan, menggelapkan, mengubah saturasi, dan lain-lain.
+----------------------------------------------------------------------------------
+3. Contoh Fungsi dalam module `SASS-Color` : 
+*  `lighten($color, $amount)` : Mencerahkan warna dengan persentase tertentu.
+*  `darken($color, $amount)` : Menggelapkan warna dengan persentase tertentu.
+*  `adjust-hue($color, $degrees)` : Mengubah hue (nada warna) dari warna.
+*  `rgba($color, $alpha)` : Menyesuaikan transparansi warna.
+----------------------------------------------------------------------------------
+
+
+
+
+C. String Manipulation :
+1. Module ini digunakan untuk memanipulasi dan memproses string. Kamu bisa menggabungkan string, mengecek panjang string, atau mengubah teks kapitalisasi.
+----------------------------------------------------------------------------------
+2. Contoh Fungsi dalam module `SASS:String` :
+*  `to-upper-case($string)` : Mengubah string menjadi huruf kapital.
+*  `to-lower-case($string)` : Mengubah string menjadi huruf kecil.
+*  `str-length($string) : Mengembalikan panjang string.
+*  `quote($string) : Menambahkan tanda kutip pada string.
+----------------------------------------------------------------------------------
+
+
+
+
+D. List :
+1. Module ini menyediakan fungsi untuk bekerja sama dengan list(daftar) dalam SASS. List adalah koleksi nilai yang dipisahkan oleh koma atau spasi. M
+----------------------------------------------------------------------------------
+2. odul ini berguna untuk melakukan operasi pada elemen list, seperti menambah atau menghapus item.
+----------------------------------------------------------------------------------
+3. Contoh fungsi dalam module `SASS:List` :
+*  `length($list)` : Mengembalikan jumlah item dalam list.
+*  `nth($list, $n)` : Mengembalikan item ke-n dari list.
+*  `append($list, $value)` : Menambahkan item ke akhir list.
+----------------------------------------------------------------------------------
+
+
+
+
+
+E. map :
+1. Module ini digunakan untuk bkerja sama dengan map (peta dalma SASS).
+----------------------------------------------------------------------------------
+2. Map adalah koleksi pasangan kunci-nilai (key-value pairs), dan module in memungkinkan manipulasi seperti mengambil nilai dari map atau menambah entri baru.
+----------------------------------------------------------------------------------
+3. Contoh fungsi dalam module `SASS : Map` : 
+*  `map-get($map, $key)` : Mengmabil niali yang sesuai dengan kunci dalam map.
+*  `map-merge($map1, $map2)` : Menggabungkan dua map.
+*  `map-keys($map)` : Mengembalikan semua kunci dari map.
+----------------------------------------------------------------------------------
+
+
+
+
+F. Mathematic : 
+1. Module ini menyediakan fungsi matematika yang berguna dalam perhitungan ukuran, seperti margin, padding, atau ukuran font.
+----------------------------------------------------------------------------------
+2. Contoh Fungsi dalam Module SASS:Math:
+*  min($number1, $number2): Mengembalikan nilai minimum dari dua angka.
+----------------------------------------------------------------------------------
+*  max($number1, $number2): Mengembalikan nilai maksimum dari dua angka.
+----------------------------------------------------------------------------------
+*  percentage($number): Mengonversi angka ke dalam persentase.
+----------------------------------------------------------------------------------
+
+
+
+
+G. Meta-programming :
+1. Modul ini mendukung meta-programming dalam SASS, seperti bekerja dengan mixins, functions, dan variables.
+----------------------------------------------------------------------------------
+2. Contoh Fungsi : 
+*  `function-exist($name)` : Mengecek apakah fungsi dengan nama tertentu ada.
+*  `mixin-exists($name)` : Mengecek apakah mixin dengan nama tertentu ada.
+<----
+@mixin my-mixin {
+  color: red;
+}
+
+@if mixin-exists(my-mixin) {
+  .box {
+    @include my-mixin;
+  }
+}
+---->
+----------------------------------------------------------------------------------
+
+
+
+
+
+F. CSS selector manipulation :
+1. Modul ini memungkinkan manipulasi CSS selector di SASS, seperti menggabungkan atau mengelola selector.
+----------------------------------------------------------------------------------
+2. Contoh Fungsi :
+*  `selector-nest($selectors...)` : Menyusun selector secara bersarang.
+*  `is-superselector($super, $sub)` : Mengecek apakah selector $super lebih luas dari $sub.
+<----
+$nested: selector-nest('.nav', '&__item');
+.nav__item {
+  content: "#{$nested}"; // Output: ".nav__item"
+}
+---->
+----------------------------------------------------------------------------------
+
+
+
+
+G. Kesimpulan :
+1. Built-in modules SASS menawarkan alat dan fungsionalitas canggih yang memperluas kemampuan CSS tradisional. 
+----------------------------------------------------------------------------------
+2. Dengan menggunakan built-in modules, pengembang dapat menulis CSS yang lebih efisien, dinamis, dan mudah dikelola dengan bantuan fungsi-fungsi untuk warna, string, list, map, selector, dan operasi matematika.
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
